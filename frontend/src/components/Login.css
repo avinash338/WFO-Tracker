@@ -1,0 +1,47 @@
+/* Center the login page */
+.login-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+  font-family: "Inter", sans-serif;
+}
+
+.login-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Styled Google button */
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #ffffff;
+  color: #444;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn:hover {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,104 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  text-align: center;
+  padding: 20px;
+}
+
+.login-container, .attendance-form, .attendance-table {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 12px;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+@media (max-width: 600px) {
+  .attendance-form, .attendance-table {
+    width: 95%;
+  }
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #007bff;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 0 0 12px 12px;
+}
+
+.navbar-left h2 {
+  margin: 0;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-pic {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.navbar button {
+  background: white;
+  color: #007bff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.navbar button:hover {
+  background: #f0f0f0;
+}
+
+.attendance-table label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.attendance-table input[type="month"] {
+  padding: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
