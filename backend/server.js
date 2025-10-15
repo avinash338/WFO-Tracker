@@ -4,7 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-==================================================================
+// ==================================================================
 // app.use(
 //   cors({
 //     origin: process.env.CLIENT_ORIGIN,
@@ -12,7 +12,7 @@ const app = express();
 //   })
 // );
 // app.options("*", cors());
-==================================================================
+// ==================================================================
 // CORS configuration
 // const allowedOrigins = [process.env.CLIENT_ORIGIN];
 // app.use(
@@ -29,7 +29,7 @@ const app = express();
 //     credentials: true,
 //   })
 // );
-==================================================================
+// ==================================================================
 app.use(cors({ origin: true, credentials: true }));
 app.options("*", cors());
 app.use(express.json());
