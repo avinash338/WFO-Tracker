@@ -95,12 +95,21 @@ function Dashboard({ user, setUser }) {
           </thead>
           <tbody>
             {records.length > 0 ? (
-              records.map((r, i) => (
-                <tr key={i}>
-                  <td>{r.date}</td>
-                  <td>{r.status}</td>
-                </tr>
-              ))
+              records.map((r, i) => {
+  const formattedDate = new Date(r.date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  return (
+    <tr key={i}>
+      <td>{formattedDate}</td>
+      <td>{r.status}</td>
+    </tr>
+  );
+})
+
             ) : (
               <tr>
                 <td colSpan="2">No records found</td>
