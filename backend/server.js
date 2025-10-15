@@ -5,30 +5,30 @@ require("dotenv").config();
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: process.env.CLIENT_ORIGIN || "http://localhost:3000",
-//     credentials: true,
-//   })
-// );
-// app.options("*", cors());
-// CORS configuration
-const allowedOrigins = [process.env.CLIENT_ORIGIN];
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // Allow requests with no origin (like Postman or curl)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        const msg = `CORS policy: Origin ${origin} not allowed`;
-        return callback(new Error(msg), false);
-      }
-      return callback(null, true);
-    },
+    origin: process.env.CLIENT_ORIGIN,
     credentials: true,
   })
 );
 app.options("*", cors());
+// CORS configuration
+// const allowedOrigins = [process.env.CLIENT_ORIGIN];
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       // Allow requests with no origin (like Postman or curl)
+//       if (!origin) return callback(null, true);
+//       if (allowedOrigins.indexOf(origin) === -1) {
+//         const msg = `CORS policy: Origin ${origin} not allowed`;
+//         return callback(new Error(msg), false);
+//       }
+//       return callback(null, true);
+//     },
+//     credentials: true,
+//   })
+// );
+// app.options("*", cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
