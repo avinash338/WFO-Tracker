@@ -3,7 +3,7 @@ import { callApi } from './util.js'
 import Navbar from "./Navbar";
 import "./Dashboard.css";
 
-const API_URL = "http://localhost:5000";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 const Base_URL = `${API_URL}/api/attendance`;
 
 function Dashboard({ user, setUser }) {
