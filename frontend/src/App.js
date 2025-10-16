@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import WfoTrackerCalendar from "./components/WfoTrackerCalendar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -17,6 +18,10 @@ function App() {
           path="/dashboard" 
           element={user ? <Dashboard user={user} setUser={setUser} /> : <Navigate to="/" />} 
         />
+         {/* <Route 
+          path="/dashboard" 
+          element={user ? <WfoTrackerCalendar user={user} setUser={setUser} /> : <Navigate to="/" />} 
+        /> */}
       </Routes>
     </Router>
   );
