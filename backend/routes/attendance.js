@@ -6,8 +6,13 @@ router.post("/submit", async (req, res) => {
   try {
     const { userId, userEmail, date, status } = req.body;
     const attendance = new Attendance({ userId, userEmail, date, status });
-    await attendance.save();
-    res.json({ message: "Attendance saved!" });
+    const savedAttendance = await attendance.save();
+    res.json({
+      userId: savedAttendance.userId,
+      userEmail: savedAttendance.userEmail,
+      date: savedAttendance.date,
+      status: savedAttendance.status,
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
