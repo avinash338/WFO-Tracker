@@ -16,7 +16,7 @@ function App() {
         />
         <Route 
           path="/dashboard" 
-          element={user ? <Dashboard user={user} setUser={setUser} /> : <Navigate to="/" />} 
+          element={user ? <WfoTrackerCalendar user={user} setUser={setUser} /> : <Navigate to="/" />} 
         />
          {/* <Route 
           path="/dashboard" 
