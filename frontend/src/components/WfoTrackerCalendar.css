@@ -1,259 +1,204 @@
-/* --- Global Styles --- */
 body {
-    background-color: #f0f4f8; /* Light blue/gray background */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
+  background-color: #f0f4f8;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
-/* --- Main App Container --- */
 .wfo-tracker-app {
-    width: 100%;
-    max-width: 900px;
-    margin: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 20px;
 }
 
-/* --- Header --- */
 .app-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2b77b7; /* Primary Blue */
-    color: white;
-    padding: 15px 25px;
-    border-radius: 8px 8px 0 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2b77b7;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .app-header h1 {
-    font-size: 1.5em;
-    margin: 0;
+  font-size: 1.5em;
+  margin: 0;
 }
 
 .user-actions span {
-    margin-right: 15px;
-    font-weight: 600;
+  margin-right: 15px;
+  font-weight: 600;
 }
 
 .logout-button {
-    background-color: #ffc107; /* Yellow */
-    color: #333;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.2s;
+  background-color: #ffc107;
+  color: #333;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
 }
 
 .logout-button:hover {
-    background-color: #e0a800;
+  background-color: #e0a800;
 }
 
-/* --- Calendar Card --- */
 .calendar-card {
-    background-color: white;
-    padding: 25px;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 25px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Selector Section --- */
 .selector-section {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .selector-section label {
-    font-weight: 600;
-    color: #555;
-    margin-right: 10px;
+  font-weight: 600;
+  color: #555;
+  margin-right: 10px;
 }
 
 #month-select {
-    padding: 8px 12px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-    cursor: pointer;
-    background-color: #f9f9f9;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: #f9f9f9;
 }
 
-/* --- Legend --- */
-.legend {
-    margin-bottom: 20px;
-    font-size: 0.9em;
-    color: #555;
-    display: flex;
-    gap: 20px;
-}
-
-.wfo-legend-box {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    background-color: #007bff; /* Blue for WFO */
-    border-radius: 3px;
-    margin-right: 5px;
-    vertical-align: middle;
-}
-
-.today-legend-box {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    background-color: #ffc107; /* Yellow for Today */
-    border-radius: 50%;
-    margin-right: 5px;
-    vertical-align: middle;
-}
-
-/* --- Calendar Grid --- */
 .calendar-grid-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 1px; /* Minimal gap for border separation */
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    overflow: hidden; /* Contains the grid borders nicely */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-/* Day Names (Sun, Mon, Tue...) */
 .day-name {
-    text-align: center;
-    font-weight: bold;
-    color: #2b77b7;
-    padding: 10px 0;
-    background-color: #eaf2f8; /* Light background for header */
-    border-bottom: 1px solid #ddd;
+  text-align: center;
+  font-weight: bold;
+  color: #2b77b7;
+  padding: 10px 0;
+  background-color: #eaf2f8;
+  border-bottom: 1px solid #ddd;
 }
 
-/* Individual Day Cells */
 .day-cell {
-    min-height: 80px;
-    padding: 8px;
-    background-color: #fff;
-    border-right: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Date number aligned to top right */
-    position: relative;
-    cursor: pointer;
-    transition: background-color 0.15s, box-shadow 0.15s;
+  min-height: 80px;
+  padding: 8px;
+  background-color: #fff;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.15s, box-shadow 0.15s;
 }
 
-/* Remove last column and row borders */
 .day-cell:nth-child(7n) {
-    border-right: none;
+  border-right: none;
 }
 .calendar-grid-container > div:nth-last-child(-n + 7) {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .day-cell:not(.empty-cell):hover {
-    background-color: #f0f8ff;
-    box-shadow: inset 0 0 0 1px #a0c4ff;
+  background-color: #f0f8ff;
+  box-shadow: inset 0 0 0 1px #a0c4ff;
 }
 
-/* Empty cells (padding at the start/end of the month) */
 .empty-cell {
-    background-color: #f9f9f9;
-    cursor: default;
-    box-shadow: none;
+  background-color: #f9f9f9;
+  cursor: default;
+  box-shadow: none;
 }
 
-/* Date Number Styling */
 .date-number {
-    font-size: 1.1em;
-    font-weight: 600;
-    color: #333;
-    position: absolute;
-    top: 8px;
-    left: 8px;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #333;
+  position: absolute;
+  top: 8px;
+  left: 8px;
 }
 
-/* --- Status Specific Styles --- */
-
-/* WFO Day */
 .wfo-day {
-    background-color: #dbeaff; /* Light Blue background for WFO */
-    border: 1px solid #a0c4ff;
-    cursor: pointer;
+  background-color: #dbeaff;
+  border: 1px solid #a0c4ff;
+  cursor: pointer;
 }
 
 .wfo-icon {
-    font-size: 1.5em;
-    color: #2b77b7; /* Blue Icon */
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    /* Center the icon visually in the cell */
-    display: block; 
-    left: 50%;
-    transform: translateX(-50%);
+  font-size: 1.5em;
+  color: #2b77b7;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* Weekend Day */
 .weekend-day {
-    background-color: #f5f5f5;
-    cursor: default;
+  background-color: #f5f5f5;
+  cursor: default;
 }
 .weekend-day .date-number {
-    color: #a0a0a0;
+  color: #a0a0a0;
 }
 
-/* Today Highlight (Yellow Circle around the date) */
-.today-highlight {
-    box-shadow: 0 0 0 2px #ffc107 inset; /* Yellow inset border */
-}
-.today-highlight .date-number {
-    color: #ffc107;
-}
-
-/* --- Summary --- */
 .summary {
-    margin-top: 20px;
-    padding: 15px;
-    border-top: 1px solid #ddd;
-    font-size: 1.1em;
-    text-align: right;
-    color: #333;
+  margin-top: 20px;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  font-size: 1.1em;
+  text-align: right;
+  color: #333;
 }
 
-/* --- Mobile Responsiveness --- */
 @media (max-width: 600px) {
-    .calendar-container {
-        padding: 10px;
-    }
-    
-    .day-name {
-        font-size: 0.7em; /* Shrink day names on mobile */
-    }
+  .calendar-container {
+    padding: 10px;
+  }
 
-    .day-cell {
-        min-height: 60px; /* Reduce cell height */
-        padding: 5px;
-    }
+  .day-name {
+    font-size: 0.7em;
+  }
 
-    .date-number {
-        font-size: 0.9em; /* Shrink date number */
-    }
+  .day-cell {
+    min-height: 60px;
+    padding: 5px;
+  }
 
-    .wfo-icon {
-        font-size: 1.2em; /* Shrink icon */
-    }
+  .date-number {
+    font-size: 0.9em;
+  }
 
-    .app-header h1 {
-        font-size: 1.3em;
-    }
+  .wfo-icon {
+    font-size: 1.2em;
+  }
 
-    .user-actions {
-        display: none; /* Hide user name/logout for brevity on tiny screens */
-    }
+  .app-header h1 {
+    font-size: 1.3em;
+  }
+
+  .user-actions {
+    display: none;
+  }
 }
