@@ -148,7 +148,7 @@ function WfoTrackerCalendar({ user, setUser }) {
         </div>
 
         <div className="summary">
-          Total WFO Days in {calendarData.monthValue}: **{calendarData.totalWfoDays}**
+          Total WFO Days in {calendarData.monthValue}: <b>{calendarData.totalWfoDays}</b>
         </div>
       </div>
     </div>
