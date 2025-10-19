@@ -47,7 +47,7 @@ function WfoTrackerCalendar({ user, setUser }) {
     const wfoStatus = calendarData.days.find((d) => d && d.fullDate === date)?.status;
     const postAttendance = {
       method: "POST",
-      url: `${Base_URL}/submit`,
+      url: `${Base_URL}/mark`,
       data: {
         userId: user.uid,
         userEmail: user.email,
@@ -55,9 +55,9 @@ function WfoTrackerCalendar({ user, setUser }) {
         status: "WFO",
       }
     };
-    const removeAttendance = {
-      method: "PATCH",
-      url: `${Base_URL}/update-status`,
+     const removeAttendance = {
+      method: "DELETE",
+      url: `${Base_URL}/unmark`,
       data: {
         userId: user.uid,
         date: date
