@@ -2,7 +2,7 @@ const express = require("express");
 const Attendance = require("../models/Attendance");
 const router = express.Router();
 
-router.post("/submit", async (req, res) => {
+router.post("/mark", async (req, res) => {
   try {
     const { userId, userEmail, date, status } = req.body;
     const attendance = new Attendance({ userId, userEmail, date, status });
@@ -18,25 +18,18 @@ router.post("/submit", async (req, res) => {
   }
 });
 
-router.patch("/update-status", async (req, res) => {
+router.delete("/unmark", async (req, res) => {
   try {
     const { userId, date } = req.body;
-    const updatedAttendance = await Attendance.findOneAndUpdate(
-      { userId, date, status: "WFO" },
-      { status: null },
-      { new: true }
+    const deletedAttendance = await Attendance.findOneAndDelete(
+      { userId, date, status: "WFO" }
     );
 
-    if (!updatedAttendance) {
+    if (!deletedAttendance) {
       return res.status(404).json({ message: "Attendance record not found or status not 'WFO'" });
     }
 
-    res.json({
-      userId: updatedAttendance.userId,
-      userEmail: updatedAttendance.userEmail,
-      date: updatedAttendance.date,
-      status: updatedAttendance.status,
-    });
+    res.json({ message: "Attendance record deleted successfully" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
