@@ -101,11 +101,11 @@ function WfoTrackerCalendar({ user, setUser }) {
               onChange={(e) => setMonth(e.target.value)}
             />
           </div>
-          <div>
-            <div className="loader" style={{ display: loader ? 'block' : 'none' }}>
-              Loading...
+           {loader && (
+            <div className="loader-container">
+              <div className="spinner"></div>
             </div>
-          </div>
+          )}
         </div>
 
         <div className="calendar-grid-container">
