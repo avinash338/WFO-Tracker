@@ -16,8 +16,6 @@ export const generateMonthlyDataArray = (monthYearString) => {
     );
     return [];
   }
-
-  // Set to 1st day of month
   date.setDate(1);
 
   const firstDayOfWeek = date.getDay();
@@ -26,18 +24,13 @@ export const generateMonthlyDataArray = (monthYearString) => {
   const totalDaysInMonth = new Date(year, month + 1, 0).getDate();
 
   const daysArray = [];
-
-  // Add leading nulls for alignment
   for (let i = 0; i < firstDayOfWeek; i++) {
     daysArray.push(null);
   }
 
-  // Generate day objects
   for (let day = 1; day <= totalDaysInMonth; day++) {
     const currentDayDate = new Date(year, month, day);
     const currentDayOfWeek = currentDayDate.getDay();
-
-    // Create full date string in YYYY-MM-DD format
     const fullDate = `${year}-${String(month + 1).padStart(2, "0")}-${String(
       day
     ).padStart(2, "0")}`;
@@ -71,33 +64,29 @@ export const generateMonthlyDataArray = (monthYearString) => {
 
   return {
     month: `${monthNames[month]} ${year}`,
+    monthValue: date.toLocaleString('default', { month: 'long' }),
     days: daysArray,
     totalWfoDays: 0,
   };
 };
 
 
-export const updateCalendarWithApiData=(calendarData, apiData) =>{
+export const updateCalendarWithApiData = (calendarData, apiData) => {
   if (!calendarData?.days || !Array.isArray(calendarData.days)) return calendarData;
-
-  // Convert API response into a lookup for quick access
   const statusMap = apiData.reduce((map, item) => {
     const date = new Date(item.date);
-    const day = date.getDate(); // Extract the day number (1–31)
+    const day = date.getDate();
     map[day] = item.status;
     return map;
   }, {});
 
-  // Update calendar days with the corresponding status
   calendarData.days = calendarData.days.map((day) => {
-    if (!day || !day.date) return day; // Skip null placeholders
+    if (!day || !day.date) return day;
     if (statusMap[day.date]) {
       return { ...day, status: statusMap[day.date] };
     }
     return day;
   });
-
-  // Update total WFO days count
   calendarData.totalWfoDays = calendarData.days.filter(
     (d) => d && d.status === "WFO"
   ).length;
