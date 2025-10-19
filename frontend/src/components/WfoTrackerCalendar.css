@@ -68,6 +68,44 @@ body {
   cursor: pointer;
   background-color: #f9f9f9;
 }
+/* Loader Container */
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  margin-left: auto;
+}
+
+/* Simple circular spinner */
+.spinner {
+  border: 3px solid #e3e3e3;
+  border-top: 3px solid #2b77b7; /* your theme blue */
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive spacing fix */
+.selector-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .calendar-grid-container {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
